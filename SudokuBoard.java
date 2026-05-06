@@ -220,7 +220,7 @@ public class SudokuBoard
 		{
 			for (int c = 0; c < board[r].length; c++)
 			{
-				charBoard[r][c] = ("" + (board[r][c] + '0')).charAt(0);
+				charBoard[r][c] = ("" + board[r][c] + '0').charAt(0);
 			}
 		}
 		gui.update(charBoard);
