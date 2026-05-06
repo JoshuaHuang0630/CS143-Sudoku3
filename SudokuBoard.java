@@ -176,6 +176,34 @@ public class SudokuBoard
 		return true;
 	}
 
+	public boolean solve()
+	{
+		if (!isValid())
+		{
+			return false;
+		}
+		else if (isSolved())
+		{
+			return  true;
+		}
+
+		for (int r = 0; r < board.length; r++)
+		{
+			for (int c = 0; c < board[r].length; c++)
+			{
+				for (int i = 1; i <= 9; i++)
+				{
+					place(r, c, i);
+				}
+			}
+		}
+	}
+
+	private void place(int row, int col, int num)
+	{
+		board[row][col] = num;
+	}
+
 	public String toString()
 	{
 		String result = "";
