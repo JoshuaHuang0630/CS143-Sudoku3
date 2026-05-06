@@ -1,12 +1,14 @@
 import java.util.*;
 import java.io.*;
 
-public class SudokuEngine {
-   public static void main(String[] args) {
-      String fileName = "boards/data1.sdk";
-      SudokuBoard board = new SudokuBoard(fileName);  
-      System.out.println(board); 
-   }
+public class SudokuEngine
+{
+	public static void main(String[] args)
+	{
+		String fileName = "boards/data1.sdk";
+		SudokuBoard board = new SudokuBoard(fileName);
+		System.out.println(board);
+	}
 }
 
 /*
