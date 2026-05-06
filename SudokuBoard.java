@@ -184,7 +184,7 @@ public class SudokuBoard
 		}
 		else if (isSolved())
 		{
-			return  true;
+			return true;
 		}
 
 		for (int r = 0; r < board.length; r++)
