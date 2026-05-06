@@ -7,6 +7,7 @@ public class SudokuEngine
 	{
 		String fileName = "boards/data1.sdk";
 		SudokuBoard board = new SudokuBoard(fileName);
+		board.solve();
 		System.out.println(board);
 	}
 }

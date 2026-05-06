@@ -191,12 +191,21 @@ public class SudokuBoard
 		{
 			for (int c = 0; c < board[r].length; c++)
 			{
-				for (int i = 1; i <= 9; i++)
+				if (board[r][c] == 0)
 				{
-					place(r, c, i);
+					for (int i = 1; i <= 9; i++)
+					{
+						place(r, c, i);
+						if (solve())
+						{
+							return true;
+						}
+						board[r][c] = 0;
+					}
 				}
 			}
 		}
+		return false;
 	}
 
 	private void place(int row, int col, int num)
