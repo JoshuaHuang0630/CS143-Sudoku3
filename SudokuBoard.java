@@ -4,10 +4,14 @@ import java.io.*;
 public class SudokuBoard
 {
 	private int[][] board;
+	private char[][] charBoard;
+	private BoardGUI gui;
 
 	public SudokuBoard()
 	{
 		board = new int[9][9];
+		charBoard = new char[9][9];
+		gui = new BoardGUI(board.length);
 	}
 
 	public SudokuBoard(String fileName)
@@ -193,6 +197,7 @@ public class SudokuBoard
 			{
 				if (board[r][c] == 0)
 				{
+					// Loop through every possible number to go in a square
 					for (int i = 1; i <= 9; i++)
 					{
 						place(r, c, i);
@@ -200,6 +205,7 @@ public class SudokuBoard
 						{
 							return true;
 						}
+						// Revert change since the conditional returned false
 						board[r][c] = 0;
 					}
 				}
@@ -210,6 +216,14 @@ public class SudokuBoard
 
 	private void place(int row, int col, int num)
 	{
+		for (int r = 0; r < board.length; r++)
+		{
+			for (int c = 0; c < board[r].length; c++)
+			{
+				charBoard[r][c] = ("" + (board[r][c] + '0')).charAt(0);
+			}
+		}
+		gui.update(charBoard);
 		board[row][col] = num;
 	}
 
